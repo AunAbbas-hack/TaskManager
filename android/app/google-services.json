@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "642981350479",
+    "firebase_url": "https://internpractice1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "internpractice1",
+    "storage_bucket": "internpractice1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642981350479:android:7442c0aec7545cc0086e3a",
+        "android_client_info": {
+          "package_name": "com.example.aunproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPAG7FCCa6lLeQdISAgU7Dv5TBQs3nwVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:642981350479:android:0435ef20ead67f7e086e3a",
+        "android_client_info": {
+          "package_name": "com.example.aunproject1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPAG7FCCa6lLeQdISAgU7Dv5TBQs3nwVQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
