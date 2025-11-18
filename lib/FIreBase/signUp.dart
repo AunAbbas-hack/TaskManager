@@ -54,8 +54,7 @@ class _SignupFirebaseState extends State<SignupFirebase> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 28.0),
         child: Form(
-          key: formKegit init
-
+          key: formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
