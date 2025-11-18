@@ -1,7 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:aunproject1/FIreBase/functions/sign_up.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../Utilities/round_button.dart';
+
 
 class SignupFirebase extends StatefulWidget {
   const SignupFirebase({super.key});
@@ -11,42 +14,19 @@ class SignupFirebase extends StatefulWidget {
 }
 
 class _SignupFirebaseState extends State<SignupFirebase> {
+  SignUp1 signup=Get.put(SignUp1());
   bool loading = false;
-  TextEditingController emailController=TextEditingController();
-  TextEditingController passwordController=TextEditingController();
   final formKey = GlobalKey<FormState>();
-  FirebaseAuth _auth = FirebaseAuth.instance;
-  void Login() {
-    setState(() {
-      loading = true;
-    });
-    _auth
-        .createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text ,
-        )
-        .then((value) {
-          setState(() {
-            loading = false;
-          });
-          Navigator.pop(context);
-    })
-        .onError((error, stackTrace) {
-          setState(() {
-            loading = false;
-          });
-          print("Error ${error.toString()}");
-        });
+  void SignUp() {
+    if (formKey.currentState!.validate()) {
+      {
+        SignUp();
+      };
+    }
+
   }
 
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-    emailController.dispose();
-    passwordController.dispose();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +41,7 @@ class _SignupFirebaseState extends State<SignupFirebase> {
             children: [
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
-                controller: emailController ,
+                controller: signup.emailController.value ,
                 decoration: InputDecoration(
                   hintText: "Email",
                   labelText: "Email",
@@ -69,28 +49,23 @@ class _SignupFirebaseState extends State<SignupFirebase> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                controller: passwordController ,
+                controller: signup.passwordController.value ,
                 decoration: InputDecoration(
                   hintText: "Password",
                   labelText: "Password",
                 ),
               ),
               SizedBox(height: 30),
-              RoundButton(
+              Obx(()=>RoundButton(
                 loading: false,
                 title: "Sign In",
                 ontap: () {
                   setState(() {
                     loading = false;
                   });
-                  if (formKey.currentState!.validate()) {
-                    {
-                      Login();
-                    }
-                    ;
-                  }
+                  SignUp();
                 },
-              ),
+              ),),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
