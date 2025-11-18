@@ -1,5 +1,4 @@
 import 'package:aunproject1/Customs/constants.dart';
-import 'package:aunproject1/To-DoList/searchBar.dart';
 import 'package:aunproject1/To-DoList/todo_item.dart';
 import 'package:flutter/material.dart';
 
@@ -13,6 +12,7 @@ class TodoHome extends StatefulWidget {
 }
 
 class _TodoHomeState extends State<TodoHome> {
+
   final todoList = Todo.todoList();
   final searchController = TextEditingController();
   List<Todo> findTodo = [];
@@ -43,8 +43,7 @@ class _TodoHomeState extends State<TodoHome> {
 
         findTodo = results;
       });
-    }
-  }
+    }}
 
 
   final newTaskCOntroller = TextEditingController();
@@ -203,5 +202,4 @@ class _TodoHomeState extends State<TodoHome> {
         ),
       ),
     );
-  }
-}
+  }}

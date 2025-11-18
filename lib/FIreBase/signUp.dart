@@ -54,14 +54,15 @@ class _SignupFirebaseState extends State<SignupFirebase> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 28.0),
         child: Form(
-          key: formKey,
+          key: formKegit init
+
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
-                controller: emailController ?? TextEditingController(),
+                controller: emailController ,
                 decoration: InputDecoration(
                   hintText: "Email",
                   labelText: "Email",
@@ -69,7 +70,7 @@ class _SignupFirebaseState extends State<SignupFirebase> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                controller: passwordController ?? TextEditingController(),
+                controller: passwordController ,
                 decoration: InputDecoration(
                   hintText: "Password",
                   labelText: "Password",

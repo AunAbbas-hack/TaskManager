@@ -50,7 +50,7 @@ class _LoginFirebaseState extends State<LoginFirebase> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                controller: passwordController ?? TextEditingController(),
+                controller: passwordController,
                 decoration: InputDecoration(
                   hintText: "Password",
                   labelText: "Password",
