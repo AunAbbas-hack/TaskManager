@@ -1,4 +1,3 @@
-import 'package:aunproject1/FIreBase/home_screen.dart';
 import 'package:aunproject1/FIreBase/signUp.dart';
 import 'package:aunproject1/Utilities/round_button.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,7 +18,6 @@ class _LoginFirebaseState extends State<LoginFirebase> {
   TextEditingController emailController=TextEditingController();
   TextEditingController passwordController=TextEditingController();
   final formKey = GlobalKey<FormState>();
-  FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   void dispose() {
@@ -27,6 +25,12 @@ class _LoginFirebaseState extends State<LoginFirebase> {
     super.dispose();
     emailController.dispose();
     passwordController.dispose();
+  }
+  void Login() {
+
+    if(formKey.currentState!.validate()){
+      signIn.signIn();
+    }
   }
   @override
   Widget build(BuildContext context) {
@@ -42,7 +46,7 @@ class _LoginFirebaseState extends State<LoginFirebase> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               TextFormField(
-                controller: emailController ,
+                controller: signIn.emailController.value ,
                 decoration: InputDecoration(
                   hintText: "Email",
                   labelText: "Email",
@@ -50,7 +54,7 @@ class _LoginFirebaseState extends State<LoginFirebase> {
               ),
               SizedBox(height: 20),
               TextFormField(
-                controller: passwordController,
+                controller: signIn.passwordController.value,
                 decoration: InputDecoration(
                   hintText: "Password",
                   labelText: "Password",
@@ -58,9 +62,7 @@ class _LoginFirebaseState extends State<LoginFirebase> {
               ),
               SizedBox(height: 30),
               Obx(()=>RoundButton(title: "Sign In", ontap: (){
-                if(formKey.currentState!.validate()){
-                  signIn.signIn();
-                }
+                Login();
               })),
               SizedBox(height: 20),
               Row(
