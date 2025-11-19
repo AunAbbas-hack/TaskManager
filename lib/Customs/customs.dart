@@ -37,7 +37,5 @@ class Uihelper {
       ),
     );
    }
-   static noteText({required String text,required TextStyle styleText}){
-    return Text(text,style: styleText,);
-   }
+
 }

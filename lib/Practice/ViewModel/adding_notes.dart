@@ -1,21 +1,24 @@
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/material.dart';
 import "package:get/get.dart";
 
-import '../functions/add_notes.dart';
+import '../../functions/add_notes.dart';
+
 
 class AddingNotes{
   final notesRef = FirebaseDatabase.instance.ref("Notes");
-  AddNotes addNotes = Get.put(AddNotes());
+
+  final noteController = TextEditingController();
   void addingNote() {
     String id = DateTime.now().millisecondsSinceEpoch.toString();
-    String noteText=addNotes.noteController.value.text;
+    String noteText=noteController.text;
     if(noteText.isNotEmpty){
       notesRef.child(id).set({
         'note':noteText,
         'id':id,
         'subTitle':noteText
       });
-      addNotes.noteController.value.clear();
+
     }
   }
 }
