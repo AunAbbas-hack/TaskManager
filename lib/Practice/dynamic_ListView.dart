@@ -12,6 +12,7 @@ class ListviewBuilder1 extends StatefulWidget {
 }
 
 class _ListviewBuilder1State extends State<ListviewBuilder1> {
+
   final notesRef = FirebaseDatabase.instance.ref("Notes");
   AddNotes addNotes = Get.put(AddNotes());
   void addingNote() {
@@ -26,6 +27,7 @@ class _ListviewBuilder1State extends State<ListviewBuilder1> {
      addNotes.noteController.value.clear();
    }
   }
+
   void edit(){
     final editingController=TextEditingController();
     showDialog(context: context, builder: (context){
@@ -46,8 +48,13 @@ class _ListviewBuilder1State extends State<ListviewBuilder1> {
           ),
           TextButton(
             onPressed: () {
-              setState(() {
-              });
+              notesRef.child("id").set(
+                {
+                  'note':editingController.text.toString(),
+                  'id':"id",
+                  'subTitle':editingController.text.toString()
+                }
+              );
               Navigator.pop(context);
             },
             child: Text("Save"),
@@ -57,6 +64,7 @@ class _ListviewBuilder1State extends State<ListviewBuilder1> {
     });
 
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -117,8 +125,8 @@ class _ListviewBuilder1State extends State<ListviewBuilder1> {
                               }
                             },
                             itemBuilder: (context)=>[
-                        PopupMenuItem(child: Text("Edit"),value: "edit",),
-                          PopupMenuItem(child: Text("Delete"),value: "delete",),
+                        PopupMenuItem(value: "edit",child: Text("Edit"),),
+                          PopupMenuItem(value: "delete",child: Text("Delete"),),
 
                        ] )
                       );
