@@ -1,4 +1,5 @@
 import 'package:aunproject1/Customs/customs.dart';
+import 'package:aunproject1/Practice/adding_notes.dart';
 import 'package:aunproject1/functions/add_notes.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
@@ -12,21 +13,7 @@ class ListviewBuilder1 extends StatefulWidget {
 }
 
 class _ListviewBuilder1State extends State<ListviewBuilder1> {
-
-  final notesRef = FirebaseDatabase.instance.ref("Notes");
-  AddNotes addNotes = Get.put(AddNotes());
-  void addingNote() {
-    String id = DateTime.now().millisecondsSinceEpoch.toString();
-    String noteText=addNotes.noteController.value.text;
-   if(noteText.isNotEmpty){
-     notesRef.child(id).set({
-       'note':noteText,
-       'id':id,
-       'subTitle':noteText
-     });
-     addNotes.noteController.value.clear();
-   }
-  }
+  AddingNotes addingNotes=AddingNotes();
 
   void edit(){
     final editingController=TextEditingController();
@@ -48,7 +35,7 @@ class _ListviewBuilder1State extends State<ListviewBuilder1> {
           ),
           TextButton(
             onPressed: () {
-              notesRef.child("id").set(
+              addingNotes.notesRef.child("id").set(
                 {
                   'note':editingController.text.toString(),
                   'id':"id",
@@ -83,7 +70,7 @@ class _ListviewBuilder1State extends State<ListviewBuilder1> {
                 fontWeight: FontWeight.bold,
               ),
               Obx(()=>TextField(
-                controller: addNotes.noteController.value,
+                controller: addingNotes.addNotes.noteController.value,
                 decoration: InputDecoration(
                   hintText: "Add List",
                   border: OutlineInputBorder(),
@@ -93,12 +80,12 @@ class _ListviewBuilder1State extends State<ListviewBuilder1> {
              SizedBox(height: 10,),
              ElevatedButton(
                 onPressed: () {
-                  addingNote();
+                  addingNotes.addingNote();
                 },
                 child: Text("Add List"),
               ),
               Expanded(
-                child: StreamBuilder(stream: notesRef.onValue, builder: (context,AsyncSnapshot<DatabaseEvent> snapshot){
+                child: StreamBuilder(stream: addingNotes.notesRef.onValue, builder: (context,AsyncSnapshot<DatabaseEvent> snapshot){
                   return ListView.builder(
                       itemCount: snapshot.data?.snapshot.children.length??0,
                       itemBuilder: (context,index){
@@ -121,7 +108,7 @@ class _ListviewBuilder1State extends State<ListviewBuilder1> {
                                 edit();
                               }
                               else if(value=="delete"){
-                                notesRef.child(id).remove();
+                                addingNotes.notesRef.child(id).remove();
                               }
                             },
                             itemBuilder: (context)=>[
