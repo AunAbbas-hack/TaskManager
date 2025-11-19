@@ -1,10 +1,10 @@
 import 'package:aunproject1/Customs/constants.dart';
 import 'package:aunproject1/Customs/customs.dart';
-import 'package:aunproject1/FIreBase/functions/resume_link.dart';
 import 'package:aunproject1/Utilities/timeLine.dart';
 import 'package:aunproject1/Utilities/work_card.dart';
 import 'package:flutter/material.dart';
 
+import '../functions/resume_link.dart';
 import 'about.dart';
 
 class Portfolio extends StatefulWidget {

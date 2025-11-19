@@ -4,7 +4,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'functions/sign_in.dart';
+import '../functions/sign_in.dart';
+
 
 class LoginFirebase extends StatefulWidget {
   const LoginFirebase({super.key});

@@ -2,6 +2,7 @@ import 'package:aunproject1/FIreBase/login_firebase.dart';
 import 'package:aunproject1/FIreBase/splash.dart';
 import 'package:aunproject1/Portfolio/portfolio.dart';
 import 'package:aunproject1/Insta/instagram.dart';
+import 'package:aunproject1/Practice/dynamic_ListView.dart';
 import 'package:aunproject1/Practice/image_Getx.dart';
 import 'package:aunproject1/To-DoList/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -29,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:  TodoHome(),
+      home:  ListviewBuilder1(),
     );
   }
 }

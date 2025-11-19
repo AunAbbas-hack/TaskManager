@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../home_screen.dart';
 
 class SignIn extends GetxController{
   final emailController= TextEditingController().obs;

@@ -1,9 +1,9 @@
 
-import 'package:aunproject1/FIreBase/functions/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../Utilities/round_button.dart';
+import '../functions/sign_up.dart';
 
 
 class SignupFirebase extends StatefulWidget {
@@ -20,7 +20,7 @@ class _SignupFirebaseState extends State<SignupFirebase> {
   void SignUp() {
     if (formKey.currentState!.validate()) {
       {
-        SignUp();
+        signup.signUp();
       };
     }
 
