@@ -11,7 +11,7 @@ class RoundButton extends StatelessWidget {
     return GestureDetector(
       onTap: ontap,
       child: Container(
-        height: 100,
+        height: 50,
         decoration: BoxDecoration(
           color: Colors.deepPurple,
           borderRadius: BorderRadius.circular(10),

@@ -1,7 +1,8 @@
-import 'package:aunproject1/Practice/imageController.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../ViewModel/imageController.dart';
 
 class ImagePick extends StatefulWidget {
   const ImagePick({super.key});
