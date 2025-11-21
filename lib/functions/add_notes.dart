@@ -2,7 +2,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../Practice/ViewModel/adding_notes.dart';
 
 
 class AddNotes extends GetxController{
